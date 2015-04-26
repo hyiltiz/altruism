@@ -55,7 +55,7 @@ function design = fullfact(levels)
 %   This generates a 24 run design with 2 levels in the first column,
 %   4 in the second column, and 3 in the third column.
 
-%   Copyright 1993-2004 The MathWorks, Inc. 
+%   Copyright 1993-2004 The MathWorks, Inc.
 %   $Revision: 2.9.4.3 $  $Date: 2004/01/24 09:33:51 $
 
 [m,n] = size(levels);
@@ -67,7 +67,8 @@ if min(m,n) ~= 1
    error('stats:fullfact:VectorRequired','Requires a vector input.');
 end
 
-if any((floor(levels) - levels) ~= 0)  || any(levels <= 1)
+%if any((floor(levels) - levels) ~= 0)  | any(levels <= 1)
+if any((floor(levels) - levels) ~= 0)  | any(levels < 1)
    error('stats:fullfact:IntegersRequired',...
          'The input values must be integers greater than one.');
 end
