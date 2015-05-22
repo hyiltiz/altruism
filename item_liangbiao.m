@@ -3,7 +3,7 @@
 % 130315
 % created by whx, with the help of yuermai
 
-function [item_con, item_num] = item_liangbiao(leixing, xuhao, init_item_num)
+function items = item_liangbiao(leixing, xuhao, init_item_num)
 
 % leixing = 1 altruism
 % leixing = 2 zili
@@ -22,8 +22,8 @@ al_item(6,1) = {'´øÁì´ò¹¤×ÓµÜÈ¥´ºÓÎ'};    al_item(6,2) = {'´ø´ò¹¤×ÓµÜÈ¥¹«Ô°ÓÎÍæ'
 al_item(7,1) = {'×ö´ò¹¤×ÓµÜÏÄÁîÓªÖ¾Ô¸Õß'};    al_item(7,2) = {'´ø´ò¹¤×ÓµÜ²Î¹Û²©Îï¹İ'};
 al_item(8,1) = {'´ø´ò¹¤×ÓµÜ²Î¹ÛÍ¼Êé¹İ'};    al_item(8,2) = {'´ø´ò¹¤×ÓµÜ²Î¹Û¿ÆÑ§¹İ'};
 al_item(9,1) = {'´ø´ò¹¤×ÓµÜ²Î¹ÛÃûÊ¤¹Å¼£'};    al_item(9,2) = {'´ø´ò¹¤×ÓµÜÓÎÀÀ³ÇÊĞ¾°µã'};
-
-
+al_item = al_item(:);
+items.al_item = al_item;
 
 %% %% self-interest
 zili_item = cell(9, 2);
@@ -37,43 +37,44 @@ zili_item(6,1) = {'ºÍÅóÓÑÒ»ÆğÈ¥´ºÓÎ'};    zili_item(6,2) = {'ºÍÅóÓÑÒ»ÆğÈ¥¹«Ô°ÓÎÍ
 zili_item(7,1) = {'È¥²Î¼ÓÑ§Ğ£µÄÏÄÁîÓª'};    zili_item(7,2) = {'×Ô¼ºÈ¥²Î¹Û²©Îï¹İ'};
 zili_item(8,1) = {'×Ô¼ºÈ¥²Î¹ÛÍ¼Êé¹İ'};    zili_item(8,2) = {'×Ô¼ºÈ¥²Î¹Û¿ÆÑ§¹İ'};
 zili_item(9,1) = {'×Ô¼ºÈ¥²Î¹ÛÃûÊ¤¹Å¼£'};    zili_item(9,2) = {'×Ô¼ºÈ¥²Î¹Û³ÇÊĞ¾°µã'};
+zili_item = zili_item(:);
+items.zili_item = zili_item;
+all_item = [al_item; zili_item];
+items.all = all_item;
 
-
-
-
-
-%% %% ×ÖÌå
-ziti_item = [al_item; zili_item];
-
-
-
-%% %% judge
-
-%xuhao = rand(24, 1); %ÔÚÍâÃæËæ»ú ¼ÇÂ¼ĞòºÅ
-%item_num = Shuffle(1:24); %ÔÚÍâÃæshuffle
-item_num = init_item_num(1);
-
-if leixing == 1 %ÅĞ¶ÏÊÇaltruism or control 1 / 2 or altruism vs. self-interest
-    if xuhao(item_num) < 0.5
-    %if rand < 0.5
-        item_con = [ al_item(item_num, 1)  al_item(item_num, 2)];
-    else
-        item_con = [ al_item(item_num, 2)  al_item(item_num, 1)];
-    end
-elseif leixing == 2
-    if xuhao(item_num) < 0.5
-    %if rand < 0.5
-        item_con = [ zili_item(item_num, 1)  zili_item(item_num, 2)];
-    else
-        item_con = [ zili_item(item_num, 2)  zili_item(item_num, 1)];
-    end
-elseif leixing == 3
-    if xuhao(item_num) < 0.5
-    %if rand < 0.5
-        item_con = [ ziti_item(item_num, 1)  ziti_item(item_num, 2)];
-    else
-        item_con = [ ziti_item(item_num, 2)  ziti_item(item_num, 1)];
+if 0
+    %% %% ×ÖÌå
+    ziti_item = [al_item; zili_item];
+    
+    
+    
+    %% %% judge
+    
+    %xuhao = rand(24, 1); %ÔÚÍâÃæËæ»ú ¼ÇÂ¼ĞòºÅ
+    %item_num = Shuffle(1:24); %ÔÚÍâÃæshuffle
+    item_num = init_item_num(1);
+    
+    if leixing == 1 %ÅĞ¶ÏÊÇaltruism or control 1 / 2 or altruism vs. self-interest
+        if xuhao(item_num) < 0.5
+            %if rand < 0.5
+            item_con = [ al_item(item_num, 1)  al_item(item_num, 2)];
+        else
+            item_con = [ al_item(item_num, 2)  al_item(item_num, 1)];
+        end
+    elseif leixing == 2
+        if xuhao(item_num) < 0.5
+            %if rand < 0.5
+            item_con = [ zili_item(item_num, 1)  zili_item(item_num, 2)];
+        else
+            item_con = [ zili_item(item_num, 2)  zili_item(item_num, 1)];
+        end
+    elseif leixing == 3
+        if xuhao(item_num) < 0.5
+            %if rand < 0.5
+            item_con = [ ziti_item(item_num, 1)  ziti_item(item_num, 2)];
+        else
+            item_con = [ ziti_item(item_num, 2)  ziti_item(item_num, 1)];
+        end
     end
 end
-
-return;
+end
