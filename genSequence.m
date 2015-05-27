@@ -4,9 +4,12 @@ nTrialWithinBlock = 4;
 
 goodFlag = 0;
 while ~goodFlag
-    A1 = reshape(Shuffle(repmat([ 1:18], [1 4])'), [], 2);
-    A2 = reshape(Shuffle(repmat([19:36], [1 4])'), [], 2);
+    A1 = reshape(Shuffle(repmat([ 1:18], [1 4])'), [], 2); %18个利他条目序号
+    A2 = reshape(Shuffle(repmat([19:36], [1 4])'), [], 2); %18个利己条目序号
+    
+    %字体条目：18利他 + 18利己
     A3 = [reshape(Shuffle(repmat([ 1:18],[1 2])'), [], 2); reshape(Shuffle(repmat([19:36], [1 2])'), [], 2)];
+    
     A3 = cell2mat(Shuffle(enCell(A3, nTrialWithinBlock)));
     
     if any(diff([A1;A2;A3],1,2) == 0)
@@ -56,6 +59,7 @@ A = cell2mat(Shuffle([A1cell; A2cell; A3cell]));
 % end
 
 % great control over the sequence
+% B电击 3种强度
 B1 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]])', 1:3, [1 4 6]);
 B2 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]])', 1:3, [1 4 6]);
 B3 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]])', 1:3, [1 4 6]);
