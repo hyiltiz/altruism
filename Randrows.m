@@ -8,11 +8,11 @@ function y = Randrows(x)
 % Released under GPLv3 or later.
 
 if isscalar(x)
-y = randperm(x);
+  y = randperm(x);
 elseif isvector(x)
-y = Shuffle(x);
+  y = x(randperm(numel(x)));
 elseif ismatrix(x)
-warning('Randperm:ColumnWise','Shuffling column-wise keeping rows as groups.');
-randIndex = randperm(size(x, 1));
-y = x(randIndex, :):
+  warning('Randperm:ColumnWise','Shuffling column-wise keeping rows as groups.');
+  randIndex = randperm(size(x, 1));
+  y = x(randIndex, :);
 end

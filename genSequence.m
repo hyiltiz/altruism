@@ -60,9 +60,9 @@ A = cell2mat(Shuffle([A1cell; A2cell; A3cell]));
 
 % great control over the sequence
 % B���� 3��ǿ��
-B1 = Replace(Randrows([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]])', 1:3, [1 4 6]);
-B2 = Replace(Randrows([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]])', 1:3, [1 4 6]);
-B3 = Replace(Randrows([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]])', 1:3, [1 4 6]);
+B1 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
+B2 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
+B3 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
 
 
 AB = [A nan(size(A,1),1)];
