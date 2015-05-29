@@ -70,7 +70,10 @@ AB(AB(:,3)==1,end) = B1(:);
 AB(AB(:,3)==2,end) = B2(:);
 AB(AB(:,3)==3,end) = B3(:);
 
-seq = AB;
+seqBlock = repmat(1:size(AB,1)/nTrialWithinBlock, [nTrialWithinBlock 1]);
+AB(:,5) = seqBlock(:);
+
+seq = AB(:, [5 3 1 2 4]);
 end
 
 function outCell =  enCell(x, num)
