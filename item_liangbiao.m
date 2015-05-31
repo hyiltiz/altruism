@@ -3,7 +3,7 @@
 % 130315
 % created by whx, with the help of yuermai
 
-function items = item_liangbiao(leixing, xuhao, init_item_num)
+function items = item_liangbiao()
 
 % leixing = 1 altruism
 % leixing = 2 zili
