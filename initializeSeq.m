@@ -1,7 +1,7 @@
-function initializeSeq()
+
+function initializeSeq(wptr, ziti_size, xcenter, ycenter, wrect)
 
 seq = genSequence;
-block_num = 27; % seq(:,1)
 
 % altruism : zhidaoyu + kongping + 4 altruism + kongping + 4 shocks +
 % kongping
@@ -11,25 +11,34 @@ counterOption = 1;
 counterShock = 1;
 
 for i = 1:numel(unique(seq(:,1))) % 27
-    for ii = 1: numel([seq(1,:)==i]) % 4
-        zhidaoyu(seq(i,2));
-        zhu_shi_dian();
-        option1 = item_con.al_item(seq(4*(i-1) + counterOption, 3));
-        option2 = item_con.al_item(seq(4*(i-1) + counterOption, 4));
-        
-        switch seq(i, 2)
-            case 1% altruism
-                al_trial(option1, option2)
-            case 2
-                four_zili_trials()
-            case 3
-                four_ziti_trials()
-            otherwise
-                error('Bad Condition!');
-        end
-        counterOption = counterOption + 1;
-    end
     
+    while 1
+        zhi_dao_yu(wptr, seq(i,2)); % instruct
+        jitter_isi(wptr, wrect)  % cross
+        for ii = 1: numel([seq(1,:)==i]) % this is 4 altruism
+            switch seq(i, 2)
+                case 1 % altruism
+                    option1 = item_con.al_item(seq(4*(i-1) + counterOption, 3));
+                    option2 = item_con.al_item(seq(4*(i-1) + counterOption, 4));
+                case 2 % zili
+                    option1 = item_con.zili_item(seq(4*(i-1) + counterOption, 3));
+                    option2 = item_con.zili_item(seq(4*(i-1) + counterOption, 4));
+                case 3 % ziti
+                    option1 = item_con.all(seq(4*(i-1) + counterOption, 3));
+                    option2 = item_con.all(seq(4*(i-1) + counterOption, 4));
+                otherwise
+                    error('Bad conditions!');
+            end
+            options = [option1 option2];
+            oneTrial(wptr, seq(i, 2), ziti_size, xcenter, ycenter, wrect, options)
+            counterOption = counterOption + 1
+        end
+        if counterOption == 5
+            break;
+        else
+            % do nothing
+        end
+    end
     
     if counterOption == 5
         % could initialize now
@@ -40,8 +49,9 @@ for i = 1:numel(unique(seq(:,1))) % 27
     
     for iii=1:4 % this is shock
         
-        qiangdu_shock(seq(i, 5));
-        
+        shock_trial(seq(i, 5));
+        options = []; % shock trial , no options
+        oneTrial(wptr, seq(i, 5), ziti_size, xcenter, ycenter, wrect, options)
         counterShock = counterShock+ 1;
     end
     
@@ -52,7 +62,7 @@ for i = 1:numel(unique(seq(:,1))) % 27
     else
         error(['Trials in this block: ' num2str(i) ' is not 4!']);
     end
-    zhu_shi_dian();
+    jitter_isi(wptr, wrect) % cross
     
 end
 
