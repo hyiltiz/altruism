@@ -21,7 +21,7 @@ for i = 1:numel(unique(seq(:,1))) % 27
   % is this kongping? I think we need one here below
   jitter_isi(wptr, wrect);  % cross
 
-  for iii=1:sum(seq(1,:)==i) % this is shock
+  for iii=1:sum(seq(:, 1)==i) % this is shock
     oneShockTrial(wptr, seq(i, 5), ziti_size, xcenter, ycenter, wrect);
   end
 
