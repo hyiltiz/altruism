@@ -31,4 +31,4 @@ while t_now - t_init < 4;
         break;
     end
 end
-return;
+end

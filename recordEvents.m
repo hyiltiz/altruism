@@ -1,13 +1,11 @@
-
 function  recordEvents(sub_response, pingmu, dianji, painRating)
-
 %% record events with time
-% created by yuermai 玉尔麦提江·伊里提孜, 
+% created by yuermai 玉尔麦提江·伊里提孜,
 % edited by whx, with the help of lujunshi
 % 150331
 
-%% sub_response : sub responses 
-% 3 左键：leftkey 
+%% sub_response : sub responses
+% 3 左键：leftkey
 % 4 右键：rightkey
 % 5 trigger S
 % NaN no response
@@ -17,7 +15,7 @@ function  recordEvents(sub_response, pingmu, dianji, painRating)
 % 11 begin 12 end
 % 2 自利： self-interest
 % 3 字体： xieti
-% 4 电击： shock; 
+% 4 电击： shock;
 % 5 评价： pain rating
 % 51 begin
 % 52 end
@@ -47,7 +45,7 @@ global iCounter Events time_init;
 % 后面全部改为手动
 % if nargin < 3
 %     dianji = NaN;
-%     painRating = NaN;  
+%     painRating = NaN;
 % end
 
 %% record

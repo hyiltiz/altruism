@@ -1,13 +1,13 @@
-
+function s = altruism_pain()
 %% this code
 % deals with the fMRI exp. of altruism lowers pain
 
 % created by wang haixia,
-% with the tremendous help of yuermai Óñ¶ûÂóÌá½­¡¤ÒÁÀïÌá×Î, yuqinlin ÓàÇ×ÁÖ, keqin¿ÉÇÕ
-% and Dr. chen lihan ³ÂÁ¢º²ÀÏÊ¦
+% with the tremendous help of yuermai ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á½­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, yuqinlin ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, keqinï¿½ï¿½ï¿½ï¿½
+% and Dr. chen lihan ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¦
 
 % as well as the wonderful book
-% entitled ¡¶psychtoolbox¹¤¾ßÏä¼°MATLAB±à³ÌÊµÀý¡· by Dr. feng chenzhi.
+% entitled ï¿½ï¿½psychtoolboxï¿½ï¿½ï¿½ï¿½ï¿½ä¼°MATLABï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ by Dr. feng chenzhi.
 
 % Jakob Thomassen (and huangyao) : control the output of analogue pulse
 % from bits sharp  with matlab
@@ -28,44 +28,42 @@ escapeKey=KbName('escape');
 
 subinfo = getSubInfo;
 
-
-if isempty(subinfo)
-    return;
-end
 HideCursor;
 
-
-%Screen('Preference', 'SkipSyncTests', 1); %ÕýÊ½ÊµÑéÒªÈ¥µô
+%Screen('Preference', 'SkipSyncTests', 1); %ï¿½ï¿½Ê½Êµï¿½ï¿½ÒªÈ¥ï¿½ï¿½
 
 try
     AssertOpenGL;%Check if PTB-3 is properly installed on the system
 
     screens=Screen('Screens');
     screenNumber=max(screens);
-    
+
     [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
     %[wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
-    
+
     Screen(wptr,'TextStyle',1);
-    Screen('TextFont', wptr, 'ËÎÌå');
-    
+    Screen('TextFont', wptr, 'ï¿½ï¿½ï¿½ï¿½');
+
     trigger_mri(wptr, wrect, 1); % send s to trigger and dummy scan for 10s
     %zhidaoyu(wptr);
     initializeSeq(wptr, 28, xcenter, ycenter, wrect);
-    
+
     sayGoodbye(wptr, 255);
     sca;
-    
+
     ShowCursor;
-    
+
     filename = [subinfo{1} '_'];
     save(filename,'Events');
     save all;
+    s = load('all');
 catch
     psychrethrow(psychlasterror);
     sca;
     ShowCursor;
     save all;
+    s = load('all');
 end
-return;
+
+end

@@ -3,6 +3,7 @@ function sayGoodbye(wptr,color)
 %29-May-2013
 %fengchengzhi@suda.edu.cn
 %edited by wanghaixia; 150320
+
 if nargin<2
     color=0;
 end

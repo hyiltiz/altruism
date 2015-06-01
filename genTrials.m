@@ -88,4 +88,5 @@ for k = 1:cols
    settings = settings(:,ones(1,ncycles));
    design(:,k) = settings(:);
 end
-return;
+
+end

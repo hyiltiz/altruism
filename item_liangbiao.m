@@ -1,9 +1,7 @@
-
+function items = item_liangbiao()
 %% item
 % 130315
 % created by whx, with the help of yuermai
-
-function items = item_liangbiao()
 
 % leixing = 1 altruism
 % leixing = 2 zili
@@ -45,15 +43,15 @@ items.all = all_item;
 if 0
     %% %% 字体
     ziti_item = [al_item; zili_item];
-    
-    
-    
+
+
+
     %% %% judge
-    
+
     %xuhao = rand(24, 1); %在外面随机 记录序号
     %item_num = Shuffle(1:24); %在外面shuffle
     item_num = init_item_num(1);
-    
+
     if leixing == 1 %判断是altruism or control 1 / 2 or altruism vs. self-interest
         if xuhao(item_num) < 0.5
             %if rand < 0.5

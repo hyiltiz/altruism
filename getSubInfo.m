@@ -4,4 +4,7 @@ dlg_title = '±»ÊÔĞÅÏ¢';
 num_lines = 1;
 defautanswer = {'01','1','20','1'};
 subinfo = inputdlg(prompt,dlg_title,num_lines,defautanswer);
+if isempty(subinfo)
+error('Pressed Cancel. Manually aborting!');
+end
 end

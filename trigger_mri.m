@@ -1,10 +1,7 @@
-
+function trigger_mri(wptr, wrect, dummyTime)
 %% trigger the MRI
 % 150324
 % created by shenbo FROM TD_MRI for hangzhou fMRI EXP., edited by whx
-
-
-function trigger_mri(wptr, wrect, dummyTime)
 
 % global iCounter Events time_init;
 trigger_button = KbName('s');
@@ -44,5 +41,4 @@ recordEvents(5, 7, NaN, NaN);
 % whos('global');
 % disp(iCounter);
 % disp(Events);
-
-return;
+end

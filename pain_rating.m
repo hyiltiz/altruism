@@ -1,9 +1,7 @@
-
+function pain_rating(wptr,right_center, left_center,  ycenter, up_center)
 %% pain rating
 % 150315
 % created by whx, with the help of yuermai and keqin and DR. chen lihan
-
-function pain_rating(wptr,right_center, left_center,  ycenter, up_center)
 
 global leftKey  rightKey escapeKey ;
 
@@ -46,41 +44,41 @@ changdu_cn=changdu;
 recordEvents(NaN, 51,NaN,find(abs(changdu_list - changdu_cn) < .0001, 1)); %listÔªËØ¶¼¼õ
 %recordEvents(8, 51,NaN,changdu_cn,NaN,NaN);
 while t_now - t_init < 5
-    
+
     t_now = GetSecs;
-    
+
     [ keyIsDown, ~, keyCode ] = KbCheck;
-    
+
     % If the user is pressing a key, then display its code number and name.
     if keyIsDown && keyCode(escapeKey)
         break;
     end
-    
+
     if keyIsDown && ~isempty(find(keyCode, 1))
         if keyCode(leftKey)
-            
+
             changdu_cn = changdu_cn - x_changdu_unit;
-            
+
             if  changdu_cn<= left_center
                 changdu_cn = left_center;
             end
             %recordEvents(sub_response, pingmu, dianji, painRating)
             %save all
             recordEvents(3, 5, NaN, find(abs(changdu_list - changdu_cn) < .0001, 1) );
-            
+
         elseif keyCode(rightKey)
-            
+
             changdu_cn = changdu_cn + x_changdu_unit;
-            
+
             if changdu_cn> right_center
                 changdu_cn = right_center;
             end
             recordEvents(4, 5, NaN, find(abs(changdu_list - changdu_cn) < .0001, 1) );
-            
+
         end
-        
+
         %sub_response = find(keyCode, 1);
-        
+
         Screen('DrawLine', wptr, 255, left_center, ycenter, right_center, ycenter);
         %left and right endpoint
         left_info = '²»Í´';
@@ -92,12 +90,12 @@ while t_now - t_init < 5
         Screen('gluDisk', wptr, [255 0 0], changdu_cn, ycenter, 15);
         Screen('Flip', wptr);
         %recordEvents(NaN, 5,NaN,find(changdu_list==changdu_cn),NaN);
-        
+
         while KbCheck; end %prevent those who HOLDS DOWN the key
         %recordEvents(sub_response, pingmu, dianji, painRating)
-        
+
     end
-    
+
     WaitSecs(0.001);
 end
 %recordEvents(sub_response, pingmu, dianji, painRating)

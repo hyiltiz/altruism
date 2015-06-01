@@ -113,11 +113,11 @@ if ischar(sx)
     if strcmpi(sx, 'center')
         xcenter = 1;
     end
-    
+
     if strcmpi(sx, 'right')
         rjustify = 1;
     end
-    
+
     % Set sx to neutral setting:
     sx=0;
 end
@@ -159,7 +159,7 @@ end
 if isa(tstring, 'double')
     repchar = 10;
 elseif isa(tstring, 'uint8')
-    repchar = uint8(10);    
+    repchar = uint8(10);
 else
     repchar = char(10);
 end
@@ -196,7 +196,7 @@ winHeight = RectHeight(winRect);
 
 if ischar(sy) && strcmpi(sy, 'center')
     % Compute vertical centering:
-    
+
     % Compute height of text box:
     numlines = length(strfind(char(tstring), char(10))) + 1;
     bbox = SetRect(0,0,1,numlines * theight);
@@ -263,7 +263,7 @@ while ~isempty(tstring)
             dolinefeed = 1;
         end
     end
-    
+
     if IsWin
         % On Windows, a single ampersand & is translated into a control
         % character to enable underlined text. To avoid this and actually
@@ -275,7 +275,7 @@ while ~isempty(tstring)
             curstring = strrep(curstring, '&', '&&');
         end
     end
-    
+
     % tstring contains the remainder of the input string to process in next
     % iteration, curstring is the string we need to draw now.
 
@@ -292,20 +292,20 @@ while ~isempty(tstring)
         noclip = 0;
         dolinefeed = 1;
     end
-    
+
     % Any string to draw?
     if ~isempty(curstring) && noclip
         % Cast curstring back to the class of the original input string, to
         % make sure special unicode encoding (e.g., double()'s) does not
         % get lost for actual drawing:
         curstring = cast(curstring, stringclass);
-        
+
         % Need bounding box?
         if xcenter || flipHorizontal || flipVertical || rjustify
             % Compute text bounding box for this substring:
             bbox=Screen('TextBounds', win, curstring, [], [], [], righttoleft);
         end
-        
+
         % Horizontally centered output required?
         if xcenter
             % Yes. Compute dh, dv position offsets to center it in the center of window.
@@ -313,12 +313,12 @@ while ~isempty(tstring)
             % Set drawing cursor to horizontal x offset:
             xp = dh;
         end
-        
+
         % Right justified (aligned) output required?
         if rjustify
             xp = winRect(RectRight) - RectWidth(bbox);
         end
-        
+
         if flipHorizontal || flipVertical
             textbox = OffsetRect(bbox, xp, yp);
             [xc, yc] = RectCenter(textbox);
@@ -335,7 +335,7 @@ while ~isempty(tstring)
             if flipVertical
                 Screen('glScale', win, 1, -1, 1);
             end
-            
+
             if flipHorizontal
                 Screen('glScale', win, -1, 1, 1);
             end
@@ -412,3 +412,4 @@ if previouswin > 0
 end
 
 return;
+end

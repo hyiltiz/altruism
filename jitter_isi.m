@@ -1,8 +1,6 @@
-
+function jitter_isi(wptr, wrect)
 %% jitter or iti
 % 150315
-
-function jitter_isi(wptr, wrect)
 
 %recordEvents(sub_response, pingmu, dianji, painRating)
 recordEvents(NaN, 7, NaN, NaN);
