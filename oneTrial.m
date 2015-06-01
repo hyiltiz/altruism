@@ -23,7 +23,10 @@ right_center = xcenter + 1*ziti_size;
 up_center = ycenter - 2*ziti_size;
 down_center = ycenter + 1*ziti_size;
 
-option_al(wptr, ziti_size,  xcenter, left_center, right_center, up_center, down_center, options, msg1);
+% option_al(wptr, ziti_size,  xcenter, left_center, right_center, up_center, down_center, options, msg1);
+put_option(wptr, NaN, ziti_size,  xcenter, left_center, right_center, up_center, down_center, options, msg1); % NaN means default
+recordEvents(NaN, 12, NaN, NaN);
+
 jitter_isi(wptr, wrect,myRand(1,3));
 end
 
@@ -34,7 +37,9 @@ right_center = xcenter + 1*ziti_size;
 up_center = ycenter - 2*ziti_size;
 down_center = ycenter + 1*ziti_size;
 
-option_zili(wptr, ziti_size, xcenter, left_center, right_center, up_center, down_center, options, msg1);
+% option_zili(wptr, ziti_size, xcenter, left_center, right_center, up_center, down_center, options, msg1);
+put_option(wptr, NaN, ziti_size,  xcenter, left_center, right_center, up_center, down_center, options, msg1); % NaN means default
+recordEvents(NaN, 22, NaN, NaN);
 
 jitter_isi(wptr, wrect,myRand(1,3));
 end
@@ -53,7 +58,8 @@ if rand > 0.5
 else
     which_font = 0;
 end
-option_ziti(wptr, which_font, ziti_size, xcenter, left_center, right_center, up_center, down_center, options, msg1);
+put_option(wptr, which_font, ziti_size,  xcenter, left_center, right_center, up_center, down_center, options, msg1);
+recordEvents(NaN, 32, NaN, NaN);
 
 jitter_isi(wptr, wrect,myRand(1,3));
 end
