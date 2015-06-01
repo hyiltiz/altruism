@@ -4,7 +4,7 @@ function s = altruism_pain()
 
 % created by whx and yuermai. And yuermai instructs the process.
 % with the tremendous help of yuqinlin , keqin
-% and Dr. chen lihan 
+% and Dr. chen lihan
 
 % as well as the wonderful book
 % by Dr. feng chenzhi.
@@ -26,7 +26,7 @@ leftKey=KbName('3#');
 rightKey=KbName('4$');
 escapeKey=KbName('escape');
 
-subinfo = getSubInfo;
+subinfo = getSubInfo  ;
 
 HideCursor;
 
@@ -43,10 +43,12 @@ try
     [xcenter,ycenter] = RectCenter(wrect);
 
     Screen(wptr,'TextStyle',1);
-    Screen('TextFont', wptr, 'ËÎÌו');
+    Screen('Preference', 'TextRenderer', 1);
+    Screen('Preference', 'TextAntiAliasing', 1);
+    Screen('TextFont', wptr, 'Microsoft Yahei'); % or `Microsoft Simsun`?
 
     trigger_mri(wptr, wrect, 1); % send s to trigger and dummy scan for 10s
-    
+
     initializeSeq(wptr, 28, xcenter, ycenter, wrect);
 
     sayGoodbye(wptr, 255);
@@ -54,16 +56,19 @@ try
 
     ShowCursor;
 
-    filename = [subinfo{1} '_'];
+    filename = [subinfo{1} '_' datestr(now, 30)];
     save(filename,'Events');
+    save([filename '_full']);
     save all;
     s = load('all');
 catch
+    filename = [subinfo{1} '_' datestr(now, 30)];
+    save all;
+    save([filename '_buggy']);
+    s = load('all');
     psychrethrow(psychlasterror);
     sca;
     ShowCursor;
-    save all;
-    s = load('all');
 end
 
 end
