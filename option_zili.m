@@ -1,4 +1,4 @@
-function option_zili(wptr, ziti_size, xcenter, left_center, right_center, up_center, down_center, options)
+function option_zili(wptr, ziti_size, xcenter, left_center, right_center, up_center, down_center, options, msg1)
 %% option zili
 % 150315
 
@@ -12,14 +12,14 @@ global leftKey rightKey escapeKey;
 item_con = item_liangbiao(2, xuhao, init_item_num);
 zili_left = char(item_con(1));
 zili_right = char(item_con(2));
-txt_diyihang = '我选择';
+txt_diyihang = msg1;
 Screen('DrawText',wptr, txt_diyihang, xcenter-2*ziti_size, up_center, 255);
 Screen('DrawText',wptr, zili_left,  left_center, down_center, 255);
 Screen('DrawText',wptr, zili_right, right_center, down_center, 255);
 Screen('Flip', wptr);
 recordEvents(NaN, 21, NaN, NaN);
 
-ListenChar(2); % ������MATLAB����������İ�����Ϊ��
+ListenChar(2); % 
 
 t_init = GetSecs;
 t_now = GetSecs;

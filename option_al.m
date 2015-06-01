@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 %% option
 % 150315
@@ -7,6 +8,9 @@ function option_al(wptr, ziti_size, xcenter, left_center, right_center, up_cente
 =======
 function option_al(wptr, ziti_size, xcenter, left_center, right_center, up_center, down_center,options)
 >>>>>>> 1394a75... re-ordered the whole project:
+=======
+function option_al(wptr, ziti_size, xcenter, left_center, right_center, up_center, down_center,options, msg1)
+>>>>>>> 11b4c43... add the last part ;
 
 global leftKey  rightKey escapeKey ;
 
@@ -14,7 +18,7 @@ item_con = item_liangbiao(1, xuhao, init_item_num);
 al_left = char(item_con(1));
 al_right = char(item_con(2));
 x_diyihang =  xcenter-2*ziti_size;
-txt_diyihang = '我选择';
+txt_diyihang = msg1;
 Screen('DrawText',wptr, txt_diyihang, x_diyihang, up_center, 255);
 Screen('DrawText',wptr, al_left,  left_center, down_center, 255);
 Screen('DrawText',wptr, al_right, right_center, down_center, 255);
@@ -22,7 +26,7 @@ Screen('Flip', wptr);
 %recordEvents(sub_response, pingmu, dianji, painRating)
 recordEvents(NaN, 11, NaN, NaN);
 
-ListenChar(2); % ������MATLAB����������İ�����Ϊ��
+ListenChar(2); %
 
 
 t_init = GetSecs;

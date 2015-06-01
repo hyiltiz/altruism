@@ -1,4 +1,4 @@
-function  option_ziti(wptr, which_font, ziti_size, xcenter, left_center, right_center, up_center, down_center, options)
+function  option_ziti(wptr, which_font, ziti_size, xcenter, left_center, right_center, up_center, down_center, options, msg1)
 %% option
 % 150315
 <<<<<<< HEAD
@@ -23,7 +23,7 @@ end
 
 % first screen for subjects to choose
 Screen(wptr,'TextStyle',1);
-Screen('DrawText',wptr, '我选择', xcenter-2*ziti_size, up_center, 255);
+Screen('DrawText',wptr, msg1, xcenter-2*ziti_size, up_center, 255);
 Screen(wptr,'TextStyle', mark_ziti);
 Screen('DrawText',wptr, ziti_left,  left_center, down_center, 255);
 Screen(wptr,'TextStyle',mark_ziti2);
@@ -56,7 +56,7 @@ while t_now - t_init < 4
                 bbox_left = [left_center-4*ziti_size down_center left_center+4*ziti_size down_center];
                 %bbox_right = [right_center-4*ziti_size down_center right_center+4*ziti_size down_center];
                 Screen(wptr,'TextStyle', 1);
-                Screen('DrawText',wptr, '我选择', xcenter-2*ziti_size, up_center, 255);
+                Screen('DrawText',wptr, msg1, xcenter-2*ziti_size, up_center, 255);
                 Screen(wptr,'TextStyle', mark_ziti);
                 [~, ~, bboxL] = DrawFormattedText_box(wptr, double(ziti_left), left_center, down_center, WhiteIndex(wptr),  [], [], [], [], 0, bbox_left);
                 Screen(wptr,'TextStyle', mark_ziti2);
@@ -73,7 +73,7 @@ while t_now - t_init < 4
 
                 bbox_right = [right_center-4*ziti_size down_center right_center+4*ziti_size down_center];
                 Screen(wptr,'TextStyle', 1);
-                Screen('DrawText',wptr, '我选择', xcenter-2*ziti_size, up_center, 255);
+                Screen('DrawText',wptr, msg1, xcenter-2*ziti_size, up_center, 255);
                 Screen(wptr,'TextStyle', mark_ziti);
                 Screen('DrawText',wptr, ziti_left,  left_center, down_center, 255);
                 Screen(wptr,'TextStyle', mark_ziti2);

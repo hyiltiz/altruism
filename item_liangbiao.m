@@ -1,14 +1,13 @@
 function items = item_liangbiao()
 %% item
 % 130315
-% created by whx, with the help of yuermai
-
-% leixing = 1 altruism
-% leixing = 2 zili
-% leixing = 3 ziti
+% created by whx,  yuermai
 
 
 %% %%
+
+items.msg1 = '我选择';
+
 al_item = cell(9, 2);
 
 al_item(1,1) = {'给打工子弟捐赠点钱'};    al_item(1,2) = {'给打工子弟捐一本书'};

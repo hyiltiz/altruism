@@ -1,13 +1,13 @@
-function seq = genSequence
+function seq = genSequence()
 
 nTrialWithinBlock = 4;
 
 goodFlag = 0;
 while ~goodFlag
-    A1 = reshape(Shuffle(repmat([ 1:18], [1 4])'), [], 2); %18��������Ŀ����
-    A2 = reshape(Shuffle(repmat([19:36], [1 4])'), [], 2); %18��������Ŀ����
+    A1 = reshape(Shuffle(repmat([ 1:18], [1 4])'), [], 2); %18 altruism items
+    A2 = reshape(Shuffle(repmat([19:36], [1 4])'), [], 2); %18 liji items
 
-    %������Ŀ��18���� + 18����
+    %ziti items = 18 + 18
     A3 = [reshape(Shuffle(repmat([ 1:18],[1 2])'), [], 2); reshape(Shuffle(repmat([19:36], [1 2])'), [], 2)];
 
     A3 = cell2mat(Shuffle(enCell(A3, nTrialWithinBlock)));
@@ -59,7 +59,7 @@ A = cell2mat(Shuffle([A1cell; A2cell; A3cell]));
 % end
 
 % great control over the sequence
-% B���� 3��ǿ��
+% B for shock
 B1 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
 B2 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
 B3 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);

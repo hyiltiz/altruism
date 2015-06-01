@@ -7,10 +7,11 @@ up_center = ycenter - 2*ziti_size;
 put_shock(wptr, intensity); % intensity : 1 4 6
 
 
-jitter_isi(wptr, wrect);
+%jitter_isi(wptr, wrect);
 pain_rating(wptr,right_center, left_center, ycenter, up_center);
 
-jitter_isi(wptr, wrect);
+jitter = 4 + (8 -4 )*rand();
+jitter_isi(wptr, wrect, jitter);
 
 end
 

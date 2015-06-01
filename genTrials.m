@@ -41,6 +41,8 @@ for iblock = 1:numblock
     trials = [trials; inblock_trials];
 end
 
+end
+
 
 %===================
 function design = fullfact(levels)
