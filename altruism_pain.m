@@ -2,12 +2,12 @@ function s = altruism_pain()
 %% this code
 % deals with the fMRI exp. of altruism lowers pain
 
-% created by wang haixia,
-% with the tremendous help of yuermai �������Ὥ����������, yuqinlin ������, keqin����
-% and Dr. chen lihan ��������ʦ
+% created by whx and yuermai. And yuermai instructs the process.
+% with the tremendous help of yuqinlin , keqin
+% and Dr. chen lihan 
 
 % as well as the wonderful book
-% entitled ��psychtoolbox�����估MATLAB����ʵ���� by Dr. feng chenzhi.
+% by Dr. feng chenzhi.
 
 % Jakob Thomassen (and huangyao) : control the output of analogue pulse
 % from bits sharp  with matlab
@@ -30,10 +30,10 @@ subinfo = getSubInfo;
 
 HideCursor;
 
-%Screen('Preference', 'SkipSyncTests', 1); %��ʽʵ��Ҫȥ��
+%Screen('Preference', 'SkipSyncTests', 1); % drop for formal exp.
 
 try
-    AssertOpenGL;%Check if PTB-3 is properly installed on the system
+    AssertOpenGL; % Check if PTB-3 is properly installed on the system
 
     screens=Screen('Screens');
     screenNumber=max(screens);
@@ -43,10 +43,10 @@ try
     [xcenter,ycenter] = RectCenter(wrect);
 
     Screen(wptr,'TextStyle',1);
-    Screen('TextFont', wptr, '����');
+    Screen('TextFont', wptr, '����');
 
     trigger_mri(wptr, wrect, 1); % send s to trigger and dummy scan for 10s
-    %zhidaoyu(wptr);
+    
     initializeSeq(wptr, 28, xcenter, ycenter, wrect);
 
     sayGoodbye(wptr, 255);
