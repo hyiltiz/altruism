@@ -25,11 +25,11 @@ end
 
 % first screen for subjects to choose
 Screen(wptr,'TextStyle',0);
-Screen('DrawText',wptr, msg1, xcenter-2*ziti_size, up_center, 255);
+Screen('DrawText',wptr, double(msg1), xcenter-2*ziti_size, up_center, 255);
 Screen(wptr,'TextStyle', mark_ziti);
-Screen('DrawText',wptr, ziti_left,  left_center, down_center, 255);
+Screen('DrawText',wptr, double(ziti_left),  left_center, down_center, 255);
 Screen(wptr,'TextStyle',mark_ziti2);
-Screen('DrawText',wptr, ziti_right, right_center, down_center, 255);
+Screen('DrawText',wptr, double(ziti_right), right_center, down_center, 255);
 Screen('Flip', wptr);
 recordEvents(NaN, 31, NaN, NaN);
 
@@ -48,11 +48,6 @@ while t_now - t_init < 4
         [ keyIsDown, ~, keyCode ] = KbCheck;
 
         % If the user is pressing a key, then display its code number and name.
-        if keyIsDown && keyCode(escapeKey)
-            break;
-        end
-
-
         if keyIsDown && ~isempty(find(keyCode, 1))
             if keyCode(leftKey)
                 bbox_left = [left_center-4*ziti_size down_center left_center+4*ziti_size down_center];

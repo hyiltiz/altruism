@@ -32,7 +32,7 @@ HideCursor;
 %Screen('Preference', 'SkipSyncTests', 1); % drop for formal exp.
 
 try
-    if exist('data', 'dir') ~= 7
+    if exist('./data', 'dir') ~= 7
       mkdir('data');
     end
 
@@ -52,24 +52,25 @@ try
 
     trigger_mri(wptr, wrect, 1); % send s to trigger and dummy scan for 10s
 
-    initializeSeq(wptr, 28, xcenter, ycenter, wrect);
+    seq = genSequence;
+    initializeSeq(wptr, 28, xcenter, ycenter, wrect, seq);
 
     sayGoodbye(wptr, 255);
 
     filename = [subinfo{1} '_' datestr(now, 30)];
-    save(['data/' filename],'Events');
-    save(['data/' filename '_full']);
+    save(['./data/' filename],'Events');
+    save(['./data/' filename '_full']);
     save all;
     s = load('all');
     sca;
     ShowCursor;
 catch
     filename = [subinfo{1} '_' datestr(now, 30)];
-    save(['data/' filename '_buggy']);
+    save(['./data/' filename '_buggy']);
     save all;
     s = load('all');
-    psychrethrow(psychlasterror);
     sca;
+    psychrethrow(psychlasterror);
     ShowCursor;
 end
 

@@ -1,6 +1,5 @@
-function initializeSeq(wptr, ziti_size, xcenter, ycenter, wrect)
+function initializeSeq(wptr, ziti_size, xcenter, ycenter, wrect, seq)
 
-seq = genSequence;
 
 %% block altruism : zhidaoyu + kongping + 4 altruism + kongping + 4 shocks +
 % kongping
