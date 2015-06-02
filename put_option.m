@@ -96,5 +96,10 @@ while t_now - t_init < 4
     WaitSecs(0.001);
 end
 
+if flag_isResponse == 0
+  % still no response
+  recordEvents(NaN, 3, NaN, NaN); % NOTE: is this code correct?
+end
+
 ListenChar(0);
 end
