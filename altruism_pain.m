@@ -32,13 +32,17 @@ HideCursor;
 %Screen('Preference', 'SkipSyncTests', 1); % drop for formal exp.
 
 try
+    if exist('data', 'dir') ~= 7
+      mkdir('data');
+    end
+
     AssertOpenGL; % Check if PTB-3 is properly installed on the system
 
     screens=Screen('Screens');
     screenNumber=max(screens);
 
-    %[wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
-    [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
+    [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
+    % [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
 
     Screen(wptr,'TextStyle',0);
@@ -51,19 +55,18 @@ try
     initializeSeq(wptr, 28, xcenter, ycenter, wrect);
 
     sayGoodbye(wptr, 255);
-    sca;
-
-    ShowCursor;
 
     filename = [subinfo{1} '_' datestr(now, 30)];
-    save(filename,'Events');
-    save([filename '_full']);
+    save(['data/' filename],'Events');
+    save(['data/' filename '_full']);
     save all;
     s = load('all');
+    sca;
+    ShowCursor;
 catch
     filename = [subinfo{1} '_' datestr(now, 30)];
+    save(['data/' filename '_buggy']);
     save all;
-    save([filename '_buggy']);
     s = load('all');
     psychrethrow(psychlasterror);
     sca;
