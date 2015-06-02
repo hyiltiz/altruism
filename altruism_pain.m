@@ -5,7 +5,6 @@ function s = altruism_pain()
 % created by whx and yuermai. And yuermai instructs the process.
 % with the tremendous help of yuqinlin , keqin
 % and Dr. chen lihan
-
 % as well as the wonderful book
 % by Dr. feng chenzhi.
 
@@ -38,8 +37,8 @@ try
     screens=Screen('Screens');
     screenNumber=max(screens);
 
-    [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
-    %[wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
+    %[wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
+    [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
 
     Screen(wptr,'TextStyle',0);
