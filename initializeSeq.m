@@ -1,4 +1,3 @@
-
 function initializeSeq(wptr, ziti_size, xcenter, ycenter, wrect)
 
 seq = genSequence;

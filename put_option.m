@@ -4,7 +4,7 @@ function put_option(wptr, which_font, ziti_size, xcenter, left_center, right_cen
 % for altruism and ziti, provide the same which_font which does nothing
 % then for ziti, change the ziti according to the value of which_font
 
-global leftKey  rightKey escapeKey ;
+global leftKey rightKey escapeKey ;
 
 item_con = options;
 ziti_left = char(item_con(1));
@@ -33,7 +33,7 @@ Screen('DrawText',wptr, ziti_right, right_center, down_center, 255);
 Screen('Flip', wptr);
 recordEvents(NaN, 31, NaN, NaN);
 
-ListenChar(2); % ???MATLAB????????????
+ListenChar(2);
 
 t_init = GetSecs;
 t_now = GetSecs;
@@ -87,6 +87,9 @@ while t_now - t_init < 4
                 flag_isResponse = 1;
                 recordEvents(4, 3, NaN, NaN);
 
+              elseif keyCode(escapeKey)
+                recordEvents(9, 9, 9, 9);
+                error('Manually aborted!')
             end
 
             while KbCheck; end %prevent those who HOLDS DOWN the key
