@@ -18,6 +18,7 @@ function  recordEvents(sub_response, pingmu, dianji, painRating)
 % 5 ÆÀ¼Û£º pain rating    [51 begin 52 end]
 % 6 Ñ¡Ôñ£º xuanze
 % 7 Ê®×Ö£º isi or ITI
+% 8 instructions
 
 %% dianji : shock intensity
 % 1 : 1 score intensity
