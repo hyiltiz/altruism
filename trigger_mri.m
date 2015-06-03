@@ -1,4 +1,4 @@
-function trigger_mri(wptr, wrect, dummyTime)
+function trigger_mri(wptr, dummyTime)
 %% trigger the MRI
 % 150324
 % created by shenbo FROM TD_MRI for hangzhou fMRI EXP., edited by whx
@@ -33,11 +33,17 @@ end
 % give a fixation when enter the program during Dummy Scan
 %recordEvents(sub_response, pingmu, dianji, painRating);
 recordEvents(NaN, NaN, NaN, NaN);
-fix=fixation(wptr, '+ ', 255, 0);
+%fix=fixation(wptr, '+ ', 255, 0);
 
 %%%%%%%%%%%%%%%%%% DUMMY SCAN HERE dummy scan here %%%%%%%%%%%%%%%%%%%%
-showFix(wptr,wrect,fix,dummyTime);
-recordEvents(5, 7, NaN, NaN);
+coverStory = imread('coverStory.png');
+t88 = Screen('MakeTexture', wptr, coverStory);
+Screen('DrawTexture', wptr, t88);
+Screen('Flip', wptr);
+WaitSecs(dummyTime);
+
+%showFix(wptr,wrect,fix,dummyTime);
+recordEvents(5, 8, NaN, NaN);
 % whos('global');
 % disp(iCounter);
 % disp(Events);
