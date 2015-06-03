@@ -71,7 +71,7 @@ while t_now - t_init < 4
                 Screen('FrameRect', wptr, [255,0,0], rect, 1);
                 Screen('Flip', wptr);
                 flag_isResponse = 1;
-                event_key = 4;
+                event_key = 3;
                 %recordEvents(3, 3, NaN, NaN);
                 
             elseif keyCode(rightKey)
@@ -103,6 +103,8 @@ while t_now - t_init < 4
                 recordEvents(event_key, 22, NaN, NaN);
             elseif trialType == 3
                 recordEvents(event_key, 32, NaN, NaN);
+            else
+                % both 3 and 4 were not pressed
             end
             
             while KbCheck; end %prevent those who HOLDS DOWN the key

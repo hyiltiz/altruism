@@ -45,8 +45,8 @@ try
     screens=Screen('Screens');
     screenNumber=max(screens);
 
-    [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
-    % [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
+    %[wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
+    [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
     HideCursor;
 
