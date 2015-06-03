@@ -20,16 +20,14 @@ global leftKey  rightKey escapeKey iCounter Events time_init;
 time_init = GetSecs;
 iCounter = 1;
 Events = NaN(2, 5);
-KbName('UnifyKeyNames');
-leftKey=KbName('3#');
-rightKey=KbName('4$');
-escapeKey=KbName('escape');
 
 subinfo = getSubInfo  ;
+seq = genSequence;
+a = item_liangbiao;
+design = [num2cell(seq(:, [1 2])) a.all(seq(:,[3 4])) num2cell(seq(:, 5))];
+disp(design);
+keyboard;
 
-HideCursor;
-
-%Screen('Preference', 'SkipSyncTests', 1); % drop for formal exp.
 
 try
     if exist('./data', 'dir') ~= 7
@@ -38,12 +36,19 @@ try
 
     AssertOpenGL; % Check if PTB-3 is properly installed on the system
 
+    KbName('UnifyKeyNames');
+    leftKey=KbName('3#');
+    rightKey=KbName('4$');
+    escapeKey=KbName('escape');
+    %Screen('Preference', 'SkipSyncTests', 1); % drop for formal exp.
+
     screens=Screen('Screens');
     screenNumber=max(screens);
 
     [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
     % [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
+    HideCursor;
 
     Screen(wptr,'TextStyle',0);
     Screen('Preference', 'TextRenderer', 1);
@@ -52,7 +57,6 @@ try
 
     trigger_mri(wptr, wrect, 1); % send s to trigger and dummy scan for 10s
 
-    seq = genSequence;
     initializeSeq(wptr, 28, xcenter, ycenter, wrect, seq);
 
     sayGoodbye(wptr, 255);
