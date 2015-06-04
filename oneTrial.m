@@ -62,7 +62,7 @@ else
     which_font = 0;
 end
 put_option(wptr, which_font, ziti_size,  xcenter, left_center, right_center, up_center, down_center, options, msg1, trialType);
-recordEvents(NaN, 32, NaN, NaN);
+recordEvents(NaN, 33 + which_font, NaN, NaN); % NOTE: rand record?
 
 jitter_isi(wptr, wrect,myRand(1,3));
 end

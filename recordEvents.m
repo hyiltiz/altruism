@@ -13,7 +13,7 @@ function  recordEvents(sub_response, pingmu, dianji, painRating)
 %% pingmu content:
 % 1 利他： altruism trial [11 begin 12 end]
 % 2 自利： self-interest  [21 begin 22 end]
-% 3 字体： xieti          [31 begin 32 end]
+% 3 字体： xieti          [31 begin 32 end] Italic: right 33, left 34
 % 4 电击： shock;
 % 5 评价： pain rating    [51 begin 52 end]
 % 6 选择： xuanze
