@@ -26,7 +26,7 @@ seq = genSequence;
 a = item_liangbiao;
 design = [num2cell(seq(:, [1 2])) a.all(seq(:,[3 4])) num2cell(seq(:, 5))];
 disp(design);
-keyboard;
+% keyboard;
 
 
 try
@@ -46,7 +46,7 @@ try
     screenNumber=max(screens);
 
     [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
-%     [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
+    %[wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
     HideCursor;
 
@@ -55,7 +55,7 @@ try
     Screen('Preference', 'TextAntiAliasing', 1);
     Screen('TextFont', wptr, 'Microsoft Yahei'); % or `Microsoft Simsun`?
 
-    trigger_mri(wptr, 10); % send s to trigger and dummy scan for 10s
+    trigger_mri(wptr, getTime(2)); % send s to trigger and dummy scan for 10s
 
     initializeSeq(wptr, 28, xcenter, ycenter, wrect, seq);
 

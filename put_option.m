@@ -48,7 +48,7 @@ t_now = GetSecs;
 
 flag_isResponse = 0;
 
-while t_now - t_init < 0.5
+while t_now - t_init < 4
     
     t_now = GetSecs;
     
