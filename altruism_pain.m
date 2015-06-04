@@ -55,7 +55,7 @@ try
     Screen('Preference', 'TextAntiAliasing', 1);
     Screen('TextFont', wptr, 'Microsoft Yahei'); % or `Microsoft Simsun`?
 
-    trigger_mri(wptr, getTime(2)); % send s to trigger and dummy scan for 10s
+    trigger_mri(wptr, getTime('DummyScan')); % send s to trigger and dummy scan for 10s
 
     initializeSeq(wptr, 28, xcenter, ycenter, wrect, seq);
 
