@@ -8,11 +8,11 @@ msg1 = item_con.msg1;
 
 for i = 1:numel(unique(seq(:,1))) % 27
 
-    zhi_dao_yu(wptr, seq(i,2)); % instruct
-    jitter_isi(wptr, wrect, 1);  % cross
+    zhi_dao_yu(wptr, seq(4*i,2)); % instruct
+    jitter_isi(wptr, wrect, 0.5);  % cross
     for ii = 1: sum(seq(:,1)==i) % this is 4 altruism
         options = item_con.all(seq(4*(i-1) + ii, [3 4]))';
-        oneTrial(wptr, seq(i, 2), ziti_size, xcenter, ycenter, wrect, options, msg1);
+        oneTrial(wptr, seq(4*i, 2), ziti_size, xcenter, ycenter, wrect, options, msg1);
     end
 
 
@@ -21,11 +21,11 @@ for i = 1:numel(unique(seq(:,1))) % 27
     % NOTE: jitter time [1,3] could be wrong!
     % jitter_isi(wptr, wrect, myRand(1,3));  % cross
 
-    for iii=1:sum(seq(:, 1)==i) % this is shock
-        oneShockTrial(wptr, seq(i, 5), ziti_size, xcenter, ycenter, wrect);
-    end
+%     for iii=1:sum(seq(:, 1)==i) % this is shock
+%         oneShockTrial(wptr, seq(i, 5), ziti_size, xcenter, ycenter, wrect);
+%     end
 
-    jitter_isi(wptr, wrect, myRand(4,8)); % cross
+%     jitter_isi(wptr, wrect, myRand(4,8)); % cross
 
 end
 

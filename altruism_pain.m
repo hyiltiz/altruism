@@ -26,7 +26,7 @@ seq = genSequence;
 a = item_liangbiao;
 design = [num2cell(seq(:, [1 2])) a.all(seq(:,[3 4])) num2cell(seq(:, 5))];
 disp(design);
-%keyboard;
+keyboard;
 
 
 try
@@ -45,8 +45,8 @@ try
     screens=Screen('Screens');
     screenNumber=max(screens);
 
-    %[wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
-    [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
+    [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
+%     [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
     HideCursor;
 
@@ -67,6 +67,7 @@ try
     save all;
     s = load('all');
     sca;
+    ListenChar(0);
     ShowCursor;
 catch
     filename = [subinfo{1} '_' datestr(now, 30)];
@@ -75,6 +76,7 @@ catch
     s = load('all');
     sca;
     psychrethrow(psychlasterror);
+    ListenChar(0);
     ShowCursor;
 end
 

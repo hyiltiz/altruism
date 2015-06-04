@@ -48,7 +48,7 @@ t_now = GetSecs;
 
 flag_isResponse = 0;
 
-while t_now - t_init < 4
+while t_now - t_init < 0.5
     
     t_now = GetSecs;
     
@@ -105,6 +105,7 @@ while t_now - t_init < 4
                 recordEvents(event_key, 32, NaN, NaN);
             else
                 % both 3 and 4 were not pressed
+                error('Unknown trial type');
             end
             
             while KbCheck; end %prevent those who HOLDS DOWN the key
@@ -117,8 +118,18 @@ while t_now - t_init < 4
 end
 
 if flag_isResponse == 0
-    % still no response
-    recordEvents(NaN, 3, NaN, NaN); % NOTE: is this code correct?
+    % still no respone
+    event_key = NaN;
+    if trialType == 1
+        recordEvents(event_key, 12, NaN, NaN);
+    elseif trialType == 2
+        recordEvents(event_key, 22, NaN, NaN);
+    elseif trialType == 3
+        recordEvents(event_key, 32, NaN, NaN);
+    else
+        % both 3 and 4 were not pressed
+        error('Unknown trial type');
+    end
 end
 
 ListenChar(0);
