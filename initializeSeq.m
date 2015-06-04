@@ -1,4 +1,4 @@
-function initializeSeq(wptr, ziti_size, xcenter, ycenter, wrect, seq)
+function initializeSeq(wptr, ziti_size, xcenter, ycenter, wrect, seq, seqChoice)
 
 
 %% block altruism : zhidaoyu + kongping + 4 altruism + kongping + 4 shocks +
@@ -34,10 +34,9 @@ end
 jitter_isi(wptr, wrect, getTime('CrossBeforePredictedAl')); % cross
 zhi_dao_yu(wptr, 4); % instruct of myChoice
 
-seq_shock = genseq_choice(); % lianxu shocks too much
 
-for j = 1:size(seq_shock(:, 3), 1)
-    options = item_con.all(seq_shock(i, [1 2]))';
+for j = 1:size(seqChoice(:, 3), 1)
+    options = item_con.all(seqChoice(j, [1 2]))';
     oneAl_Zili_Trial(wptr, ziti_size, xcenter, ycenter, wrect, options, msg1);
 end
 

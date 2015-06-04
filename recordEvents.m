@@ -16,7 +16,7 @@ function  recordEvents(sub_response, pingmu, dianji, painRating)
 % 3 字体： xieti          [31 begin 32 end] [Italic: right 33, left 34]
 % 4 电击： shock;         [41 begin 42 end]
 % 5 评价： pain rating    [51 begin 52 end]
-% 6 选择： xuanze         [61 begin 62 end]
+% 6 选择： xuanze         [61 begin 62 end] [altruism option at right 63, left 64]
 % 7 十字： isi or ITI     [71 begin 72 end]
 % 8 instructions          [81 begin 82 end] 
 

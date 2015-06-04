@@ -23,10 +23,13 @@ Events = NaN(2, 5);
 
 subinfo = getSubInfo  ;
 seq = genSequence;
+seqChoice = genseq_choice;  % for predicted altruism
 a = item_liangbiao;
 design = [num2cell(seq(:, [1 2])) a.all(seq(:,[3 4])) num2cell(seq(:, 5))];
+designChoice = [a.all(seqChoice(:, [1 2])) num2cell(seqChoice(:, 3))];
 disp(design);
-% keyboard;
+disp(designChoice);
+%keyboard;
 
 
 try
@@ -45,7 +48,7 @@ try
     screens=Screen('Screens');
     screenNumber=max(screens);
 
-    %[wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
+%     [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
     [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
     HideCursor;
@@ -57,7 +60,7 @@ try
 
     trigger_mri(wptr, getTime('DummyScan')); % send s to trigger and dummy scan for 10s
 
-    initializeSeq(wptr, 28, xcenter, ycenter, wrect, seq);
+    initializeSeq(wptr, 28, xcenter, ycenter, wrect, seq, seqChoice);
 
     sayGoodbye(wptr, 255);
 

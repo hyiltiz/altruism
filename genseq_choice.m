@@ -6,20 +6,24 @@ function seq_shock = genseq_choice()
 % with 36 trials ¡¾solution 2: 40 trials¡¿
 % structure [altruism_num zili_num shock]
 
-goodFlag = 0;
-while ~goodFlag
-    A1 = Shuffle([1:20 1:20]); %20 altruism items
-    A2 = Shuffle([21:40 21:40]); %20 liji items
-    if any(diff([A1;A2],1,2) == 0)
-        % do nothing
-    else
-        % we are good
-        goodFlag = 1;
-    end
-end
-op_items = [A1' A2'];
+% =====deals with lianxu===
+% goodFlag = 0;
+% while ~goodFlag
+%     A1 = Shuffle([1:20 1:20]); %20 altruism items
+%     A2 = Shuffle([21:40 21:40]); %20 liji items
+%     if any(diff([A1;A2],1,2) == 0)
+%         % do nothing
+%     else
+%         % we are good
+%         goodFlag = 1;
+%     end
+% end
+% op_items = [A1' A2'];
+%======don't need in this part===
 
-
+A1 = Shuffle([1:20 1:20]); %20 altruism items
+A2 = A1 + 20; % corresponding liji items 
+op_items = [ A2' A1'];
 
 goodFlag = 0;
 while ~goodFlag

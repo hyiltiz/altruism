@@ -1,11 +1,17 @@
 
 
-function  option_al_zili(wptr,  ziti_size, xcenter, left_center, right_center, up_center, down_center, options, msg1)
+function  option_al_zili(wptr,  ziti_size, xcenter, left_center, right_center, up_center, down_center, options, msg1, altruismRight)
 
 global leftKey  rightKey escapeKey ;
 
-optionLeft = char(options(1));
-optionRight = char(options(2));
+if altruismRight == 1 % altruism option on the left
+    optionLeft = char(options(2));
+    optionRight = char(options(1));
+elseif altruismRight == 0 % altruism option on the right
+    optionLeft = char(options(1));
+    optionRight = char(options(2));
+end
+
 x_diyihang =  xcenter-2*ziti_size;
 txt_diyihang = msg1;
 Screen('DrawText',wptr, txt_diyihang, x_diyihang, up_center, 255);
@@ -31,9 +37,9 @@ while t_now - t_init < getTime('TrialDuration') % 4s
         [ keyIsDown, ~, keyCode ] = KbCheck;
         
         % If the user is pressing a key, then display its code number and name.
-        if keyIsDown && keyCode(escapeKey)
-            break;
-        end
+        %         if keyIsDown && keyCode(escapeKey)
+        %             break;
+        %         end
         
         bbox_left = [left_center-4*ziti_size down_center left_center+4*ziti_size down_center];
         bbox_right = [right_center-4*ziti_size down_center right_center+4*ziti_size down_center];

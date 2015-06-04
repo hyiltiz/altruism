@@ -9,12 +9,12 @@ global leftKey rightKey escapeKey ;
 optionLeft = char(options(1));
 optionRight = char(options(2));
 
-if which_font == 0
+if which_font == 0 % xieti on the right
     % 0=normal,1=bold,2=italic,4=underline,8=outline,32=condense,64=extend.
     % NOTE: 1 is *BOLD*. Do we want this? If yes, use 1 and 3 instead!
     mark_ziti = 0;
     mark_ziti2 = 2;
-elseif which_font == 1
+elseif which_font == 1 % xieti on the left
     mark_ziti = 2;
     mark_ziti2 = 0;
 elseif isnan(which_font)
