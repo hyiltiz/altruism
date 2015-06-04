@@ -10,7 +10,7 @@ whichContent = {lita, liji, ziti};
 t88 = Screen('MakeTexture', wptr, whichContent{type});
 Screen('DrawTexture', wptr, t88);
 Screen('Flip', wptr);
-WaitSecs(4);
+WaitSecs(getTime('Instruction'));
 
 % NOTE: maybe a record event here
 

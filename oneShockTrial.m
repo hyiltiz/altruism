@@ -10,7 +10,7 @@ put_shock(wptr, intensity); % intensity : 1 4 6
 %jitter_isi(wptr, wrect);
 pain_rating(wptr,right_center, left_center, ycenter, up_center);
 
-jitter_isi(wptr, wrect, myRand(4,8));
+jitter_isi(wptr, wrect, getTime('CrossAfterEachShock'));
 
 end
 

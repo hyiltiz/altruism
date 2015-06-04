@@ -9,7 +9,7 @@ msg1 = item_con.msg1;
 for i = 1:numel(unique(seq(:,1))) % 27
 
     zhi_dao_yu(wptr, seq(4*i,2)); % instruct
-    jitter_isi(wptr, wrect, getTime(1));  % cross
+    jitter_isi(wptr, wrect, getTime('CrossBeforeTrial'));  % cross
     for ii = 1: sum(seq(:,1)==i) % this is 4 altruism
         options = item_con.all(seq(4*(i-1) + ii, [3 4]))';
         oneTrial(wptr, seq(4*i, 2), ziti_size, xcenter, ycenter, wrect, options, msg1);
