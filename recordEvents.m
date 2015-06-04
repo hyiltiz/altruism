@@ -22,8 +22,11 @@ function  recordEvents(sub_response, pingmu, dianji, painRating)
 
 %% dianji : shock intensity
 % 1 : 1 score intensity
+% 3 : 3 score intensity
 % 4 : 4 score intensity
+% 5 : 5 score intensity
 % 6 : 6 score intensity
+% 7 : 7 score intensity
 %  NaN
 
 %% painRating
