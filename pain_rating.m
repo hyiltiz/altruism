@@ -64,7 +64,7 @@ while t_now - t_init < 5
             end
             %recordEvents(sub_response, pingmu, dianji, painRating)
             %save all
-            recordEvents(3, 5, NaN, find(abs(changdu_list - changdu_cn) < .0001, 1) );
+            recordEvents(3, 52, NaN, find(abs(changdu_list - changdu_cn) < .0001, 1) );
 
         elseif keyCode(rightKey)
 
@@ -73,7 +73,7 @@ while t_now - t_init < 5
             if changdu_cn> right_center
                 changdu_cn = right_center;
             end
-            recordEvents(4, 5, NaN, find(abs(changdu_list - changdu_cn) < .0001, 1) );
+            recordEvents(4, 52, NaN, find(abs(changdu_list - changdu_cn) < .0001, 1) );
 
         end
 

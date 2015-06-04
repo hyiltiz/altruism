@@ -32,6 +32,7 @@ end
 %% for predicted altruism: one option is altruism and the other is zili
 
 jitter_isi(wptr, wrect, getTime('CrossBeforePredictedAl')); % cross
+zhi_dao_yu(wptr, 4); % instruct of myChoice
 
 seq_shock = genseq_choice(); % lianxu shocks too much
 
