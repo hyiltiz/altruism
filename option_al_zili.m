@@ -4,14 +4,13 @@ function  option_al_zili(wptr,  ziti_size, xcenter, left_center, right_center, u
 
 global leftKey  rightKey escapeKey ;
 
-item_con = options;
-al_left = char(item_con(1));
-al_right = char(item_con(2));
+optionLeft = char(options(1));
+optionRight = char(options(2));
 x_diyihang =  xcenter-2*ziti_size;
 txt_diyihang = msg1;
 Screen('DrawText',wptr, txt_diyihang, x_diyihang, up_center, 255);
-Screen('DrawText',wptr, al_left,  left_center, down_center, 255);
-Screen('DrawText',wptr, al_right, right_center, down_center, 255);
+Screen('DrawText',wptr, optionLeft,  left_center, down_center, 255);
+Screen('DrawText',wptr, optionRight, right_center, down_center, 255);
 Screen('Flip', wptr);
 %recordEvents(sub_response, pingmu, dianji, painRating)
 recordEvents(NaN, 11, NaN, NaN);
@@ -24,7 +23,7 @@ t_now = GetSecs;
 
 flag_isResponse = 0;
 
-while t_now - t_init < 4
+while t_now - t_init < getTime('TrialDuration') % 4s
 
     t_now = GetSecs;
 
@@ -43,8 +42,8 @@ while t_now - t_init < 4
             if keyCode(leftKey)
 
                 Screen('DrawText',wptr, txt_diyihang, x_diyihang, up_center, 255);
-                [~, ~, bboxL] = DrawFormattedText_box(wptr, double(al_left), left_center, down_center, WhiteIndex(wptr),  [], [], [], [], 0, bbox_left);
-                Screen('DrawText',wptr, al_right, right_center, down_center, 255);
+                [~, ~, bboxL] = DrawFormattedText_box(wptr, double(optionLeft), left_center, down_center, WhiteIndex(wptr),  [], [], [], [], 0, bbox_left);
+                Screen('DrawText',wptr, optionRight, right_center, down_center, 255);
                 rect = bboxL + ziti_size*[-0.3 -0.2 0.3 0.6];
                 Screen('FrameRect', wptr, [255,0,0], rect, 1);
                 Screen('Flip', wptr);
@@ -54,8 +53,8 @@ while t_now - t_init < 4
             elseif keyCode(rightKey)
 
                 Screen('DrawText',wptr, txt_diyihang, x_diyihang, up_center, 255);
-                Screen('DrawText',wptr, al_left,  left_center, down_center, 255);
-                [~, ~, bboxR] = DrawFormattedText_box(wptr, double(al_right), right_center, down_center, WhiteIndex(wptr), [], [], [], [], 0, bbox_right);
+                Screen('DrawText',wptr, optionLeft,  left_center, down_center, 255);
+                [~, ~, bboxR] = DrawFormattedText_box(wptr, double(optionRight), right_center, down_center, WhiteIndex(wptr), [], [], [], [], 0, bbox_right);
                 rect = bboxR + ziti_size*[-0.3 -0.2 0.3 0.6];
                 Screen('FrameRect', wptr, [255,0,0], rect, 1);
                 Screen('Flip', wptr);

@@ -6,11 +6,9 @@ up_center = ycenter - 2*ziti_size;
 
 put_shock(wptr, intensity); % intensity : 1 4 6
 
-
-%jitter_isi(wptr, wrect);
 pain_rating(wptr,right_center, left_center, ycenter, up_center);
 
-jitter_isi(wptr, wrect, getTime('CrossAfterEachShock'));
+jitter_isi(wptr, wrect, getTime('CrossBetweenShockTrials'));
 
 end
 
@@ -36,5 +34,6 @@ end
 % BitsPlusPlus('DIOCommand', window, 4, mask, data, command , 0, 2, [0 0], DAC);
 
 Screen('Flip', wptr);
-WaitSecs(3);
+WaitSecs(getTime('ShockDuration'));
+
 end

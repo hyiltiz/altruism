@@ -4,11 +4,11 @@ nTrialWithinBlock = 4;
 
 goodFlag = 0;
 while ~goodFlag
-    A1 = reshape(Shuffle(repmat([ 1:18], [1 4])'), [], 2); %18 altruism items
-    A2 = reshape(Shuffle(repmat([19:36], [1 4])'), [], 2); %18 liji items
+    A1 = reshape(Shuffle(repmat([ 1:20], [1 4])'), [], 2); %18 altruism items
+    A2 = reshape(Shuffle(repmat([21:40], [1 4])'), [], 2); %18 liji items
 
     %ziti items = 18 + 18
-    A3 = [reshape(Shuffle(repmat([ 1:18],[1 2])'), [], 2); reshape(Shuffle(repmat([19:36], [1 2])'), [], 2)];
+    A3 = [reshape(Shuffle(repmat([ 1:20],[1 2])'), [], 2); reshape(Shuffle(repmat([21:40], [1 2])'), [], 2)];
 
     A3 = cell2mat(Shuffle(enCell(A3, nTrialWithinBlock)));
 
@@ -59,11 +59,18 @@ A = cell2mat(Shuffle([A1cell; A2cell; A3cell]));
 % end
 
 % great control over the sequence
-% B for shock
-B1 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
-B2 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
-B3 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
+% -------------------------------solution 1: 1 4 6-------------------------
+% B for shock : 1 4 6
+% B1 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
+% B2 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
+% B3 = Replace(Shuffle([repmat([1:3]', 1, 9); [1 2 3 2 3 1 3 1 2]]), 1:3, [1 4 6]);
+% -------------------------------solution 1: 1 4 6-------------------------
 
+% -------------------------------solution 2: 1 3 5 7-----------------------
+% solution 2: shock ¡¾1 3 5 7¡¿
+B1 = Replace(Shuffle(repmat([1:4]', 1,10)), 1:4, [1 3 5 7]);
+B2 = Replace(Shuffle(repmat([1:4]', 1,10)), 1:4, [1 3 5 7]);
+B3 = Replace(Shuffle(repmat([1:4]', 1,10)), 1:4, [1 3 5 7]);
 
 AB = [A nan(size(A,1),1)];
 AB(AB(:,3)==1,end) = B1(:);

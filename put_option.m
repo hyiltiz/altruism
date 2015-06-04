@@ -6,9 +6,8 @@ function put_option(wptr, which_font, ziti_size, xcenter, left_center, right_cen
 
 global leftKey rightKey escapeKey ;
 
-item_con = options;
-ziti_left = char(item_con(1));
-ziti_right = char(item_con(2));
+optionLeft = char(options(1));
+optionRight = char(options(2));
 
 if which_font == 0
     % 0=normal,1=bold,2=italic,4=underline,8=outline,32=condense,64=extend.
@@ -27,9 +26,9 @@ end
 Screen(wptr,'TextStyle',0);
 Screen('DrawText',wptr, double(msg1), xcenter-2*ziti_size, up_center, 255);
 Screen(wptr,'TextStyle', mark_ziti);
-Screen('DrawText',wptr, double(ziti_left),  left_center, down_center, 255);
+Screen('DrawText',wptr, double(optionLeft),  left_center, down_center, 255);
 Screen(wptr,'TextStyle',mark_ziti2);
-Screen('DrawText',wptr, double(ziti_right), right_center, down_center, 255);
+Screen('DrawText',wptr, double(optionRight), right_center, down_center, 255);
 Screen('Flip', wptr);
 
 if trialType == 1
@@ -48,7 +47,7 @@ t_now = GetSecs;
 
 flag_isResponse = 0;
 
-while t_now - t_init < 4
+while t_now - t_init < getTime('TrialDuration') % 4s
     
     t_now = GetSecs;
     
@@ -64,9 +63,9 @@ while t_now - t_init < 4
                 Screen(wptr,'TextStyle', 0);
                 Screen('DrawText',wptr, double(msg1), xcenter-2*ziti_size, up_center, 255);
                 Screen(wptr,'TextStyle', mark_ziti);
-                [~, ~, bboxL] = DrawFormattedText_box(wptr, double(ziti_left), left_center, down_center, WhiteIndex(wptr),  [], [], [], [], 0, bbox_left);
+                [~, ~, bboxL] = DrawFormattedText_box(wptr, double(optionLeft), left_center, down_center, WhiteIndex(wptr),  [], [], [], [], 0, bbox_left);
                 Screen(wptr,'TextStyle', mark_ziti2);
-                Screen('DrawText',wptr, double(ziti_right), right_center, down_center, 255);
+                Screen('DrawText',wptr, double(optionRight), right_center, down_center, 255);
                 
                 rect = bboxL + ziti_size*[-0.3 -0.2 0.3 0.6];
                 Screen('FrameRect', wptr, [255,0,0], rect, 1);
@@ -82,9 +81,9 @@ while t_now - t_init < 4
                 Screen(wptr,'TextStyle', 0);
                 Screen('DrawText',wptr, double(msg1), xcenter-2*ziti_size, up_center, 255);
                 Screen(wptr,'TextStyle', mark_ziti);
-                Screen('DrawText',wptr, double(ziti_left),  left_center, down_center, 255);
+                Screen('DrawText',wptr, double(optionLeft),  left_center, down_center, 255);
                 Screen(wptr,'TextStyle', mark_ziti2);
-                [~, ~, bboxR] = DrawFormattedText_box(wptr, double(ziti_right), right_center, down_center, WhiteIndex(wptr), [], [], [], [], 0, bbox_right);
+                [~, ~, bboxR] = DrawFormattedText_box(wptr, double(optionRight), right_center, down_center, WhiteIndex(wptr), [], [], [], [], 0, bbox_right);
                 
                 rect = bboxR + ziti_size*[-0.3 -0.2 0.3 0.6];
                 Screen('FrameRect', wptr, [255,0,0], rect, 1);

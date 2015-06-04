@@ -8,5 +8,5 @@ down_center = ycenter + 1*ziti_size;
 
 option_al_zili(wptr, ziti_size, xcenter, left_center, right_center, up_center, down_center, options, msg1);
 
-jitter_isi(wptr, wrect, myRand(1,3));
+jitter_isi(wptr, wrect, getTime('CrossBetweenEvents'));
 end

@@ -32,7 +32,7 @@ while KeyCode(trigger_button) == 0
 end
 % give a fixation when enter the program during Dummy Scan
 %recordEvents(sub_response, pingmu, dianji, painRating);
-recordEvents(NaN, NaN, NaN, NaN);
+recordEvents(NaN, 81, NaN, NaN);
 %fix=fixation(wptr, '+ ', 255, 0);
 
 %%%%%%%%%%%%%%%%%% DUMMY SCAN HERE dummy scan here %%%%%%%%%%%%%%%%%%%%
@@ -43,7 +43,7 @@ Screen('Flip', wptr);
 WaitSecs(dummyTime);
 
 %showFix(wptr,wrect,fix,dummyTime);
-recordEvents(5, 8, NaN, NaN);
+recordEvents(5, 82, NaN, NaN);
 % whos('global');
 % disp(iCounter);
 % disp(Events);

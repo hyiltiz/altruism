@@ -1,21 +1,37 @@
-function time = getTime(type)
-switch type
-    case {'TrialDuration'}
-        % Trial ISI
-        time = 4;
+function MyTime = getTime(type)
+switch type 
     case {'DummyScan'}
-        % dummy time
-        time = 10;
+        % dummy MyTime , also for cover story
+        MyTime = 10;
     case {'Instruction'}
-        time = 4;
-    case {'CrossBeforeAltruism'}
-        time = 1;
-    case {'CrossBeforeShocks'}
-        time = myRand(1,3);
-    case {'CrossAfterEachShock'}
-        time = myRand(4,8);
-    case {'CrossAfterShocks'}
-        time = myRand(4,8);
-        
+        % instruction for each conditions
+        MyTime = 4;   
+    case {'CrossBeforeEvents'}
+        % time between instructions and events
+        MyTime = 1;
+    case {'TrialDuration'}
+        % Trials: altruism, zili,ziti all lasts for 4s.
+        MyTime = 4;
+    case {'CrossBetweenEvents'}
+        % time between two events(altruism, liji, ziti, altruism and liji)
+        MyTime = myRand(1,3);
+    case {'CrossLinkEventsShock'}
+        % time between 4 events and 4 shocks
+        MyTime = 6;
+    case {'ShockDuration'}
+        % time for shock
+        MyTime = 3;   
+    case {'CrossBetweenShockAndRating'}
+        % time between shock and painRating
+        MyTime = myRand(1,3);    
+    case {'CrossBetweenShockTrials'}
+        % time between two shock trials
+        MyTime = myRand(4,7);
+    case {'CrossBetweenBlocks'}
+        % time between two blocks
+        MyTime = myRand(4,7);
+    case {'CrossBeforePredictedAl'}
+        % time between the main part and the predicted altruism part
+        MyTime = 6;
 end
 end
