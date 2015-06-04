@@ -57,6 +57,7 @@ while t_now - t_init < 4
         
         % If the user is pressing a key, then display its code number and name.
         if keyIsDown && ~isempty(find(keyCode, 1))
+            event_key = NaN;
             if keyCode(leftKey)
                 bbox_left = [left_center-4*ziti_size down_center left_center+4*ziti_size down_center];
                 %bbox_right = [right_center-4*ziti_size down_center right_center+4*ziti_size down_center];
