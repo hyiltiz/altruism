@@ -7,8 +7,10 @@ function sayGoodbye(wptr,color)
 if nargin<2
     color=0;
 end
+item = item_liangbiao;
+msg = item.goodbye;
 oldtxtcolor=Screen('TextColor',wptr);
-DrawFormattedText(wptr,'实验结束！\n\n非常感谢！\n\n 请按ESC退...','center','center',color);
+DrawFormattedText(wptr,double(msg),'center','center',color);
 Screen('Flip',wptr);
 Screen('TextColor',wptr,oldtxtcolor);
 while true

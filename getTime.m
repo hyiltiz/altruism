@@ -1,6 +1,6 @@
 function MyTime = getTime(type)
 
-isDebug = 0; % shortens time
+isDebug = 1; % shortens time
 
 switch type
     case {'DummyScan'}

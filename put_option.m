@@ -20,6 +20,8 @@ elseif which_font == 1 % xieti on the right
 elseif isnan(which_font)
     markLeft = 0;
     markRight = 0;
+else
+  save buggy;
 end
 
 % first screen for subjects to choose

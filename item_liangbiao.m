@@ -7,6 +7,7 @@ function items = item_liangbiao()
 %% %%
 
 items.msg1 = '我选择';
+items.goodbye = '实验结束！\n\n非常感谢！\n\n 请按ESC退...';
 
 al_item = cell(10, 2);
 
