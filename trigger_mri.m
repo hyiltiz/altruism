@@ -12,7 +12,7 @@ HideCursor;
 GrayIndex(wptr,0.0);
 
 KbCheck;
-WaitSecs(0.1);
+WaitSecs(0.0001);
 GetSecs;
 % Set priority for script execution to realtime priority:
 priorityLevel=MaxPriority(wptr);
@@ -28,7 +28,7 @@ Screen('Flip', wptr);
 [~, ~, KeyCode] = KbCheck;
 while KeyCode(trigger_button) == 0
     [~, ~, KeyCode] = KbCheck;
-    WaitSecs(0.001);
+    WaitSecs(0.00001);
 end
 % give a fixation when enter the program during Dummy Scan
 %recordEvents(sub_response, pingmu, dianji, painRating);
