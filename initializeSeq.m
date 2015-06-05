@@ -12,7 +12,7 @@ for i = 1:numel(unique(seq(:,1))) % 27
     jitter_isi(wptr, wrect, getTime('CrossBeforeEvents'));  % cross
     for ii = 1: sum(seq(:,1)==i) % this is 4 altruism
         options = item_con.all(seq(4*(i-1) + ii, [3 4]))';
-        oneTrial(wptr, seq(4*i, 2), ziti_size, xcenter, ycenter, wrect, options, msg1);
+        oneTrial(wptr, seq(4*i, :), ziti_size, xcenter, ycenter, wrect, options, msg1);
     end
 
 
@@ -22,7 +22,7 @@ for i = 1:numel(unique(seq(:,1))) % 27
     jitter_isi(wptr, wrect, getTime('CrossLinkEventsShock'));  % cross for 6s
 
     for iii=1:sum(seq(:, 1)==i) % this is shock
-        oneShockTrial(wptr, seq(4*(i-1) + iii, 5), ziti_size, xcenter, ycenter, wrect);
+        oneShockTrial(wptr, seq(4*(i-1) + iii, 6), ziti_size, xcenter, ycenter, wrect);
     end
 
     jitter_isi(wptr, wrect, getTime('CrossBetweenBlocks')); % cross
