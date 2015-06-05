@@ -19,7 +19,7 @@ changdu_juzheng = Shuffle(changdu_juzheng);
 changdu = changdu_juzheng(1);
 % save all;
 
-Screen(wptr,'TextStyle',1);
+Screen(wptr,'TextStyle',0);
 Screen('DrawLine', wptr, 255, left_center, ycenter, right_center, ycenter);
 Screen('gluDisk', wptr, 255, changdu, ycenter, 15);
 %left and right endpoint

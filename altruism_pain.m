@@ -42,7 +42,7 @@ try
     %[wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
 
-    Screen(wptr,'TextStyle',1);
+    Screen(wptr,'TextStyle',0);
     Screen('Preference', 'TextRenderer', 1);
     Screen('Preference', 'TextAntiAliasing', 1);
     Screen('TextFont', wptr, 'Microsoft Yahei'); % or `Microsoft Simsun`?
