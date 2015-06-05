@@ -48,8 +48,8 @@ try
     screens=Screen('Screens');
     screenNumber=max(screens);
 
-%     [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
-    [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
+    [wptr, wrect] = Screen('OpenWindow', screenNumber,0,  [300,50, 1300, 600]);% FOR debug
+    % [wptr, wrect] = Screen('OpenWindow', screenNumber,0);  % for formal  exp.
     [xcenter,ycenter] = RectCenter(wrect);
     HideCursor;
 
@@ -57,7 +57,7 @@ try
     Screen('Preference', 'TextRenderer', 1);
     Screen('Preference', 'TextAntiAliasing', 1);
     Screen('TextFont', wptr, 'Microsoft Yahei'); % or `Microsoft Simsun`?
-    
+
     time_init = GetSecs; % record from this very moment.
     trigger_mri(wptr, getTime('DummyScan')); % send s to trigger and dummy scan for 10s
 
