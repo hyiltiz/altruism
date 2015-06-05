@@ -17,7 +17,7 @@ function s = altruism_pain()
 
 clear all;
 global leftKey  rightKey escapeKey iCounter Events time_init;
-time_init = GetSecs;
+
 iCounter = 1;
 Events = NaN(2, 5);
 
@@ -57,7 +57,8 @@ try
     Screen('Preference', 'TextRenderer', 1);
     Screen('Preference', 'TextAntiAliasing', 1);
     Screen('TextFont', wptr, 'Microsoft Yahei'); % or `Microsoft Simsun`?
-
+    
+    time_init = GetSecs; % record from this very moment.
     trigger_mri(wptr, getTime('DummyScan')); % send s to trigger and dummy scan for 10s
 
     initializeSeq(wptr, 28, xcenter, ycenter, wrect, seq, seqChoice);
