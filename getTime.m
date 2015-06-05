@@ -24,6 +24,8 @@ switch type
     case {'ShockDuration'}
         % time for shock
         MyTime = 3;
+      case {'PainRatingWait'}
+        MyTime = 5;
     case {'CrossBetweenShockAndRating'}
         % time between shock and painRating
         MyTime = myRand(1,3);

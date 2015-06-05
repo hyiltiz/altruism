@@ -43,7 +43,7 @@ changdu_cn=changdu;
 %recordEvents(sub_response, pingmu, dianji, painRating)
 recordEvents(NaN, 51,NaN,find(abs(changdu_list - changdu_cn) < .0001, 1)); %listÔªËØ¶¼¼õ
 %recordEvents(8, 51,NaN,changdu_cn,NaN,NaN);
-while t_now - t_init < 5
+while t_now - t_init < getTime('PainRatingWait')
 
     t_now = GetSecs;
 
