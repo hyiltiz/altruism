@@ -78,9 +78,11 @@ AB(AB(:,3)==2,end) = B2(:);
 AB(AB(:,3)==3,end) = B3(:);
 
 seqBlock = repmat(1:size(AB,1)/nTrialWithinBlock, [nTrialWithinBlock 1]);
+C = rand(size(AB,1),1); % which_font
+C(seqBlock(:)~=3) = NaN;
 AB(:,5) = seqBlock(:);
-
-seq = AB(:, [5 3 1 2 4]);
+AB(:,6) = C;
+seq = AB(:, [5 3 1 2 6 4]);
 end
 
 function outCell =  enCell(x, num)
