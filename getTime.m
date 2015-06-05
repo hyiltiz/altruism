@@ -38,6 +38,8 @@ switch type
     case {'CrossBeforePredictedAl'}
         % time between the main part and the predicted altruism part
         MyTime = 6;
+      case {'goodbye'}
+        MyTime = 6;
 end
 
 if isDebug

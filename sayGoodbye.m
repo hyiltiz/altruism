@@ -13,9 +13,12 @@ oldtxtcolor=Screen('TextColor',wptr);
 DrawFormattedText(wptr,double(msg),'center','center',color);
 Screen('Flip',wptr);
 Screen('TextColor',wptr,oldtxtcolor);
-while true
-    [~,~,keyCode]=KbCheck;
-    if keyCode(KbName('escape'))
-        break;
-    end
+% while true
+%     [~,~,keyCode]=KbCheck;
+%     if keyCode(KbName('escape'))
+%         break;
+%     end
+% end
+WaitSecs(getTime('goodbye'));
+
 end
