@@ -4,10 +4,10 @@ function  option_al_zili(wptr,  ziti_size, xcenter, left_center, right_center, u
 
 global leftKey  rightKey escapeKey ;
 
-if altruismRight == 1 % altruism option on the left
+if altruismRight == 1 % altruism option on the right
     optionLeft = char(options(2));
     optionRight = char(options(1));
-elseif altruismRight == 0 % altruism option on the right
+elseif altruismRight == 0 % altruism option on the left
     optionLeft = char(options(1));
     optionRight = char(options(2));
 end

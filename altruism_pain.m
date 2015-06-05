@@ -21,7 +21,7 @@ time_init = GetSecs;
 iCounter = 1;
 Events = NaN(2, 5);
 
-subinfo = getSubInfo  ;
+subinfo = getSubInfo;
 seq = genSequence;
 seqChoice = genseq_choice;  % for predicted altruism
 a = item_liangbiao;

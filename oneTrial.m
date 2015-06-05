@@ -50,13 +50,13 @@ right_center = xcenter + 1*ziti_size;
 up_center = ycenter - 2*ziti_size;
 down_center = ycenter + 1*ziti_size;
 
-if rand > 0.5
-    which_font = 1; % xieti on the left
+if rand < 0.5
+    which_font = 0; % xieti on the left
 else
-    which_font = 0; % xieti on the right
+    which_font = 1; % xieti on the right
 end
 put_option(wptr, which_font, ziti_size,  xcenter, left_center, right_center, up_center, down_center, options, msg1, trialType);
-recordEvents(NaN, 33 + which_font, NaN, NaN); % NOTE: rand record? [Italic: right 33, left 34]
+recordEvents(NaN, 33 + which_font, NaN, NaN); % NOTE: rand record? [Italic: left 33, right 34]
 
 jitter_isi(wptr, wrect,getTime('CrossBetweenEvents'));
 end

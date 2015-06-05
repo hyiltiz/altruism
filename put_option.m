@@ -9,25 +9,25 @@ global leftKey rightKey escapeKey ;
 optionLeft = char(options(1));
 optionRight = char(options(2));
 
-if which_font == 0 % xieti on the right
+if which_font == 0 % xieti on the left
     % 0=normal,1=bold,2=italic,4=underline,8=outline,32=condense,64=extend.
     % NOTE: 1 is *BOLD*. Do we want this? If yes, use 1 and 3 instead!
-    mark_ziti = 0;
-    mark_ziti2 = 2;
-elseif which_font == 1 % xieti on the left
-    mark_ziti = 2;
-    mark_ziti2 = 0;
+    markLeft = 2;
+    markRight = 0; % right option
+elseif which_font == 1 % xieti on the right
+    markLeft = 0;
+    markRight = 2; % right option
 elseif isnan(which_font)
-    mark_ziti = 0;
-    mark_ziti2 = 0;
+    markLeft = 0;
+    markRight = 0;
 end
 
 % first screen for subjects to choose
 Screen(wptr,'TextStyle',0);
 Screen('DrawText',wptr, double(msg1), xcenter-2*ziti_size, up_center, 255);
-Screen(wptr,'TextStyle', mark_ziti);
+Screen(wptr,'TextStyle', markLeft);
 Screen('DrawText',wptr, double(optionLeft),  left_center, down_center, 255);
-Screen(wptr,'TextStyle',mark_ziti2);
+Screen(wptr,'TextStyle',markRight);
 Screen('DrawText',wptr, double(optionRight), right_center, down_center, 255);
 Screen('Flip', wptr);
 
@@ -62,9 +62,9 @@ while t_now - t_init < getTime('TrialDuration') % 4s
                 %bbox_right = [right_center-4*ziti_size down_center right_center+4*ziti_size down_center];
                 Screen(wptr,'TextStyle', 0);
                 Screen('DrawText',wptr, double(msg1), xcenter-2*ziti_size, up_center, 255);
-                Screen(wptr,'TextStyle', mark_ziti);
+                Screen(wptr,'TextStyle', markLeft);
                 [~, ~, bboxL] = DrawFormattedText_box(wptr, double(optionLeft), left_center, down_center, WhiteIndex(wptr),  [], [], [], [], 0, bbox_left);
-                Screen(wptr,'TextStyle', mark_ziti2);
+                Screen(wptr,'TextStyle', markRight);
                 Screen('DrawText',wptr, double(optionRight), right_center, down_center, 255);
                 
                 rect = bboxL + ziti_size*[-0.3 -0.2 0.3 0.6];
@@ -80,9 +80,9 @@ while t_now - t_init < getTime('TrialDuration') % 4s
                 bbox_right = [right_center-4*ziti_size down_center right_center+4*ziti_size down_center];
                 Screen(wptr,'TextStyle', 0);
                 Screen('DrawText',wptr, double(msg1), xcenter-2*ziti_size, up_center, 255);
-                Screen(wptr,'TextStyle', mark_ziti);
+                Screen(wptr,'TextStyle', markLeft);
                 Screen('DrawText',wptr, double(optionLeft),  left_center, down_center, 255);
-                Screen(wptr,'TextStyle', mark_ziti2);
+                Screen(wptr,'TextStyle', markRight);
                 [~, ~, bboxR] = DrawFormattedText_box(wptr, double(optionRight), right_center, down_center, WhiteIndex(wptr), [], [], [], [], 0, bbox_right);
                 
                 rect = bboxR + ziti_size*[-0.3 -0.2 0.3 0.6];

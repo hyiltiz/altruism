@@ -23,7 +23,7 @@ function seq_shock = genseq_choice()
 
 A1 = Shuffle([1:20 1:20]); %20 altruism items
 A2 = A1 + 20; % corresponding liji items 
-op_items = [ A2' A1'];
+op_items = [ A1' A2'];
 
 goodFlag = 0;
 while ~goodFlag
